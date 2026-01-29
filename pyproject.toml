@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "tethysdash_plugin-ggst"
+authors = [{ name = "", email = "" }]
+license = { file = "LICENSE" }
+readme = "README.md"
+classifiers = ["License :: OSI Approved :: MIT License"]
+version = "0.0.1"
+description = "GGST Visualization plugin for tethysdash"
+requires-python = ">=3.9"
+dependencies = [
+    "intake>=0.6.6",
+    "pandas>=2.2.3",
+]
+
+[project.urls]
+Homepage = "https://github.com/FIRO-Tethys/tethysdash_plugin_ggst"
+Issues = "https://github.com/FIRO-Tethys/tethysdash_plugin_ggst/issues"
+
+[project.entry-points."intake.drivers"]
+fetch_dates = "visualizations.fetch_dates:FetchDatesDataSource"
+geo_glo_ws = "visualizations.geo_glo_ws:GeoGloWSDataSource"
+geoslinechart = "visualizations.geoslinechart:GeoSLineChart"
+get_legend = "visualizations.get_legend:GetLegendGraphic"
+get_styles = "visualizations.get_styles:FetchStyles"
+ggst_max_value = "visualizations.ggst_max_value:FetchMaxValueDataSource"
+ggst_min_value = "visualizations.ggst_min_value:FetchMinValueDataSource"
+list_regions = "visualizations.list_regions:ListRegionsDataSource"
+monthly_streamflow = "visualizations.monthly_streamflow_volume_exceedance:StreamflowVolumeExceedance"
+storage_options = "visualizations.storage_options:StorageOptionsDataSource"
+
+[tool.setuptools]
+include-package-data = true
+zip-safe = false
+
+[tool.setuptools.packages.find]
+include = ["*"]
+
+[tool.setuptools.package-data]
+"ggst_visualizations" = ["static/*.png", "*.json"]
