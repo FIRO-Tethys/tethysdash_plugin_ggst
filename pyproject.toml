@@ -5,7 +5,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "tethysdash_plugin-ggst"
-authors = [{ name = "", email = "" }]
+authors = [
+    { name = "Harsha Thigulla", email = "harshavardhanthigulla@gmail.com" },
+    { name = "Pranith Kumar", email = "pranithtettabavi03@gmail.com"},
+    { name="Sanju Dinesh", email = "sanjudinesh169@gmail.com"}
+]
 license = { file = "LICENSE" }
 readme = "README.md"
 classifiers = ["License :: OSI Approved :: MIT License"]
