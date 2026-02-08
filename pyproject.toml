@@ -37,7 +37,7 @@ ggst_min_value = "visualizations.ggst_min_value:FetchMinValueDataSource"
 list_regions = "visualizations.list_regions:ListRegionsDataSource"
 monthly_streamflow = "visualizations.monthly_streamflow_volume_exceedance:StreamflowVolumeExceedance"
 storage_options = "visualizations.storage_options:StorageOptionsDataSource"
-fetch_dates_slider = "visualizations.ggst_slider:FetchDatesSliderDataSource"
+ggst_slider = "visualizations.ggst_slider:GGSTSliderDataSource"
 
 [tool.setuptools]
 include-package-data = true
