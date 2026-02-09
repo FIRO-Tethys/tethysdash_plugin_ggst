@@ -19,7 +19,8 @@ requires-python = ">=3.9"
 dependencies = [
     "intake>=0.6.6",
     "pandas>=2.2.3",
-    "dateparser"
+    "dateparser",
+    "pyproj"
 ]
 
 [project.urls]

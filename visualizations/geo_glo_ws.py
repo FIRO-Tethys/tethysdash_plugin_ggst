@@ -1,5 +1,7 @@
 import intake
 import requests
+import json
+from pyproj import Transformer
 import plotly.graph_objects as go
 
 class GeoGloWSDataSource(intake.source.base.DataSource):
@@ -9,22 +11,28 @@ class GeoGloWSDataSource(intake.source.base.DataSource):
     partition_access = True
 
     visualization_label = 'GeoGloWS Storage Chart'
-    visualization_type = 'geo_glo_ws'
+    visualization_type = 'plotly'
     visualization_group = 'GeoGloWS'
     visualization_args = {
-        'latitude': {'type': 'float', 'description': 'Latitude'},
-        'longitude': {'type': 'float', 'description': 'Longitude'},
+        'map_click_data': {'type': 'string', 'description': 'Data from map click'},
         'storage_type': {'type': 'string', 'description': 'Storage Type'}
     }
     visualization_tags = ['chart', 'plot', 'line', 'geoglows']
     visualization_description = 'Display storage values from GeoGloWS API'
 
-    def __init__(self, metadata=None, latitude=None, longitude=None, lat=None, lon=None, region=None, storage_type=None):
+    def __init__(self, metadata=None, map_click_data=None, storage_type=None):
         super().__init__(metadata=metadata)
-        self.region = region or 'katherine_nt'
+        self.map_data = map_click_data
+        if self.map_data:
+            transformer = Transformer.from_crs("EPSG:3857", "EPSG:4326", always_xy=True)
+            json_data = json.loads(self.map_data)
+            map_coords = json_data.get("geometries")[0].get("coordinates")
+            lon, lat = transformer.transform(map_coords[0], map_coords[1])
+            
+            self.latitude = lat
+            self.longitude = lon
+
         self.storage_type = storage_type or 'grace'
-        self.latitude = float(latitude)
-        self.longitude = float(longitude)
         self._data = None
 
     def update_coordinates(self, latitude, longitude):
@@ -50,8 +58,7 @@ class GeoGloWSDataSource(intake.source.base.DataSource):
 
     def read(self):
         """Read the data and return formatted for plotting"""
-
-        # 🔒 Guard against missing or unresolved args
+        # Guard against missing or unresolved args
         if (
             self.latitude is None
             or self.longitude is None
