@@ -90,7 +90,7 @@ class GGSTSliderDataSource(base.DataSource):
 
     visualization_label = "GGST Slider"
     visualization_type = "custom"
-    visualization_group = "Custom Intake Plugins"
+    visualization_group = "GGST"
 
     visualization_args = {
         "region_name": {
@@ -123,7 +123,7 @@ class GGSTSliderDataSource(base.DataSource):
         mfe_module = "./GGSTSlider"
 
         return_value = {
-            "variable_name": "test_date_slider",
+            "variable_name": "Date Slider",
             "props": { "dates": [], "region_name": self.region_name, "debounce_delay": self.debounce_delay},
             "url": mfe_unpkg_url,
             "scope": mfe_scope,

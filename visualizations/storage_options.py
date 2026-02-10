@@ -13,7 +13,7 @@ class StorageOptionsDataSource(base.DataSource):
 
     visualization_label = 'Storage Type'
     visualization_type = 'variable_input'
-    visualization_group = 'Custom Intake Plugins'
+    visualization_group = 'GGST'
     visualization_args = {}
 
     def __init__(self, metadata=None, **kwargs):

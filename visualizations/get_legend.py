@@ -9,7 +9,7 @@ class GetLegendGraphic(intake.source.base.DataSource):
     visualization_label = 'Legend Graphic'
     visualization_type = 'image'
     visualization_description = 'Displays the legend from the thredds url'
-    visualization_group = 'Custom Intake Plugins'
+    visualization_group = 'GGST'
     visualization_args = {
         'min': {
             'type': 'float'

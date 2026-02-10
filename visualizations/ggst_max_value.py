@@ -11,7 +11,7 @@ class FetchMaxValueDataSource(base.DataSource):
 
     visualization_label = 'Maximum'
     visualization_type = 'variable_input'
-    visualization_group = 'Custom Intake Plugins'
+    visualization_group = 'GGST'
 
     visualization_args = {
         'region_name': {
