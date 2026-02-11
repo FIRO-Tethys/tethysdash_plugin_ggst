@@ -36,7 +36,6 @@ get_styles = "visualizations.get_styles:FetchStyles"
 ggst_max_value = "visualizations.ggst_max_value:FetchMaxValueDataSource"
 ggst_min_value = "visualizations.ggst_min_value:FetchMinValueDataSource"
 list_regions = "visualizations.list_regions:ListRegionsDataSource"
-monthly_streamflow = "visualizations.monthly_streamflow_volume_exceedance:StreamflowVolumeExceedance"
 storage_options = "visualizations.storage_options:StorageOptionsDataSource"
 ggst_slider = "visualizations.ggst_slider:GGSTSliderDataSource"
 
