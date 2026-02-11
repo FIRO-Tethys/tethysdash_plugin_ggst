@@ -40,9 +40,9 @@ class GetLegendGraphic(intake.source.base.DataSource):
 
     def read(self):
         if self.region_name != "global":
-            url = f'http://13.201.155.87:4000/thredds/wms/regions/data/{self.region_name}/{self.region_name}_{self.storage_type}.nc?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=lwe_thickness&colorscalerange={self.min},{self.max}&STYLES=raster/{self.styles}&transparent=FALSE&WIDTH=40&HEIGHT=250'
+            url = f'https://ggst-api.geoglows.org/thredds/wms/regions/data/{self.region_name}/{self.region_name}_{self.storage_type}.nc?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=lwe_thickness&colorscalerange={self.min},{self.max}&STYLES=raster/{self.styles}&transparent=FALSE&WIDTH=40&HEIGHT=250'
         else: 
-            url = f'http://13.201.155.87:4000/thredds/wms/regions/data/GRC_{self.storage_type}.nc?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=lwe_thickness&colorscalerange={self.min},{self.max}&STYLES=raster/{self.styles}&transparent=FALSE&WIDTH=40&HEIGHT=250'
+            url = f'https://ggst-api.geoglows.org/thredds/wms/regions/data/GRC_{self.storage_type}.nc?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=lwe_thickness&colorscalerange={self.min},{self.max}&STYLES=raster/{self.styles}&transparent=FALSE&WIDTH=40&HEIGHT=250'
         return url
 
 # http://13.201.155.87:4000/thredds/wms/regions/data/GRC_grace.nc?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=lwe_thickness&colorscalerange=50,-50&STYLES=raster/default&transparent=FALSE&WIDTH=40&HEIGHT=250
