@@ -118,7 +118,7 @@ class GGSTSliderDataSource(base.DataSource):
         self.data = None
 
     def read(self):
-        mfe_unpkg_url = "https://unpkg.com/tethysdash-plugin-ggst-slider@0.1.3/dist/remoteEntry.js"
+        mfe_unpkg_url = "https://unpkg.com/tethysdash-plugin-ggst-slider@0.1.4/dist/remoteEntry.js"
         mfe_scope = "ggst_slider_scope"
         mfe_module = "./GGSTSlider"
 
