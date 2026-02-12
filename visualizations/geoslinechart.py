@@ -43,7 +43,7 @@ class GeoSLineChart(intake.source.base.DataSource):
         return self._get_partition(None)
 
     def _load_data(self):
-        response = requests.post('http://ggst-api.geoglows.org/api/getRegionSummary',
+        response = requests.post('https://ggst-api.geoglows.org/api/getRegionSummary',
                                  data={
                                      'region': self.region,
                                      'storage_type': self.storage_type,
